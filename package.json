@@ -1,0 +1,21 @@
+{
+  "name": "betting-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^6.11.1",
+    "mongoose": "^8.2.1",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
