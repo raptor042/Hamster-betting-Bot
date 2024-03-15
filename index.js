@@ -119,6 +119,7 @@ bot.command("balance", async ctx => {
 bot.command("history", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
+        const hamsters = ["Nil", "Rocky", "Charlie", "Teddy", "Oliver"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -128,7 +129,7 @@ bot.command("history", async ctx => {
         let text = `<b>🎲 --Bet History-- 🎲</b>\n\n`
 
         bets.forEach(bet => {
-            const _text = `<b>🎖 BetID:</b><i>${bet[0]}</i>\n\n<b>💰 Wager:</b><i>${ethers.formatEther(bet[1])}</i>\n\n<b>🐭 Hamster:</b><i>${Number(bet[2])}</i>\n\n<b>🏅 Outcomer:</b><i>${outcome[Number(bet[3])]}</i>`
+            const _text = `<b>🎖 BetID:</b><i>${bet[0]}</i>\n\n<b>💰 Wager:</b><i>${ethers.formatEther(bet[1])} ETH</i>\n\n<b>🐭 Hamster:</b><i>${hamsters[Number(bet[2])]}</i>\n\n<b>🏅 Outcome:</b><i>${outcome[Number(bet[3])]}</i>\n\n`
             text += _text
         })
 
@@ -142,13 +143,14 @@ bot.command("history", async ctx => {
 bot.command("current", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
+        const hamsters = ["Nil", "Rocky", "Charlie", "Teddy", "Oliver"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
         const bet = await getBet(user.wallet)
         console.log(bet)
 
-        const text = `<b>🎲 --Latest Bet-- 🎲</b>\n\n<b>🎖 BetID:</b><i>${bet[0]}</i>\n\n<b>💰 Wager:</b><i>${ethers.formatEther(bet[1])}</i>\n\n<b>🐭 Hamster:</b><i>${Number(bet[2])}</i>\n\n<b>🏅 Outcomer:</b><i>${outcome[Number(bet[3])]}</i>`
+        const text = `<b>🎲 --Latest Bet-- 🎲</b>\n\n<b>🎖 BetID:</b><i>${bet[0]}</i>\n\n<b>💰 Wager:</b><i>${ethers.formatEther(bet[1])} ETH</i>\n\n<b>🐭 Hamster:</b><i>${hamsters[Number(bet[2])]}</i>\n\n<b>🏅 Outcome:</b><i>${outcome[Number(bet[3])]}</i>`
         await ctx.replyWithHTML(text)
     } catch (err) {
         await ctx.replyWithHTML("<b>🚨 An error occured while using the bot.</b>")
