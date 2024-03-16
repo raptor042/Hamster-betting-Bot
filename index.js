@@ -85,6 +85,18 @@ bot.command("status", async ctx => {
     }
 })
 
+bot.command("address", async ctx => {
+    try {
+        const user = await getUser(ctx.message.from.id)
+        console.log(user)
+
+        await ctx.replyWithHTML(`<b>💼 The wallet address connected to your betting account is ${user.wallet}.</b>`)
+    } catch (err) {
+        await ctx.replyWithHTML("<b>🚨 An error occured while using the bot.</b>")
+        console.log(err)
+    }
+})
+
 bot.command("wallet", async ctx => {
     try {
         if(ctx.args.length == 1) {
