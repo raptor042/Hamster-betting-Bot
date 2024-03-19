@@ -1,4 +1,4 @@
-export const BETTING_CA = "0xF1fA40e001AeE8aDE245Aa92f7ec948240Fc5AC7"
+export const BETTING_CA = "0xCb09f4771633b8a026Ad9450b25dcD280E07340A"
 
 export const BETTING_ABI = [
   {
@@ -7,6 +7,26 @@ export const BETTING_ABI = [
         "internalType": "uint256",
         "name": "_fee",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "hamsterA",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "hamsterB",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "hamsterC",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "hamsterD",
+        "type": "string"
       }
     ],
     "stateMutability": "nonpayable",
@@ -87,6 +107,30 @@ export const BETTING_ABI = [
     ],
     "name": "Withdrawal",
     "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "_users",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
