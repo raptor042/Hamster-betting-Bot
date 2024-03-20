@@ -51,5 +51,9 @@ export const getBet = async (address) => {
     const bets = await betting.getBets(address)
     console.log(bets)
 
-    return bets[bets.length - 1]
+    if(bets.length > 0) {
+        return bets[bets.length - 1]
+    } else {
+        return false
+    }
 }
