@@ -131,7 +131,7 @@ bot.command("balance", async ctx => {
 bot.command("history", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
-        const hamsters = ["Nil", "Rocky", "Charlie", "Teddy", "Oliver"]
+        const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -155,7 +155,7 @@ bot.command("history", async ctx => {
 bot.command("current", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
-        const hamsters = ["Nil", "Rocky", "Charlie", "Teddy", "Oliver"]
+        const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -171,7 +171,7 @@ bot.command("current", async ctx => {
 })
 
 const notifications = async () => {
-    const hamsters = ["Nil", "Rocky", "Charlie", "Teddy", "Oliver"]
+    const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
     const betting = new ethers.Contract(
         BETTING_CA,
         BETTING_ABI,
@@ -179,12 +179,13 @@ const notifications = async () => {
     )
     console.log(betting)
 
-    betting.on("Betting_Round_Started", async (e) => {
+    betting.on("Betting_Round_Started", async (duration, e) => {
+        console.log(duration)
         const users = await getUsers()
         console.log(users)
 
         users.forEach(async user => {
-            const text = "<b>A betting round has started. Place your bets 🚀.</b>"
+            const text = `<b>A betting round has started and will end in ${duration} minutes. Place your bets 🚀.</b>`
             await bot.telegram.sendMessage(user.userId, text, {
                 parse_mode: "HTML"
             })
