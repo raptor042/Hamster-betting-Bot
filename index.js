@@ -145,7 +145,11 @@ bot.command("history", async ctx => {
             text += _text
         })
 
-        await ctx.replyWithHTML(text)
+        if(bets.length > 0) {
+            await ctx.replyWithHTML(text)
+        } else {
+            await ctx.replyWithHTML("<b>🎲 --No Bet History-- 🎲</b>")
+        }
     } catch (err) {
         await ctx.replyWithHTML("<b>🚨 An error occured while using the bot.</b>")
         console.log(err)
@@ -163,7 +167,12 @@ bot.command("current", async ctx => {
         console.log(bet)
 
         const text = `<b>🎲 --Latest Bet-- 🎲</b>\n\n<b>🎖 BetID:</b><i>${bet[0]}</i>\n\n<b>💰 Wager:</b><i>${ethers.formatEther(bet[1])} ETH</i>\n\n<b>🐭 Hamster:</b><i>${hamsters[Number(bet[2])]}</i>\n\n<b>🏅 Outcome:</b><i>${outcome[Number(bet[3])]}</i>`
-        await ctx.replyWithHTML(text)
+
+        if(bet) {
+            await ctx.replyWithHTML(text)
+        } else {
+            await ctx.replyWithHTML("<b>🎲 --No Available Bet-- 🎲</b>")
+        }
     } catch (err) {
         await ctx.replyWithHTML("<b>🚨 An error occured while using the bot.</b>")
         console.log(err)
