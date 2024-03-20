@@ -1,4 +1,4 @@
-export const BETTING_CA = "0xCb09f4771633b8a026Ad9450b25dcD280E07340A"
+export const BETTING_CA = "0x6353C5687d177351AeB13780270064a809216d00"
 
 export const BETTING_ABI = [
   {
@@ -208,12 +208,12 @@ export const BETTING_ABI = [
             "type": "uint256"
           },
           {
-            "internalType": "enum Betting.Outcome",
+            "internalType": "enum HamsterBetting.Outcome",
             "name": "outcome",
             "type": "uint8"
           }
         ],
-        "internalType": "struct Betting.Bet[]",
+        "internalType": "struct HamsterBetting.Bet[]",
         "name": "bets",
         "type": "tuple[]"
       }
@@ -244,7 +244,7 @@ export const BETTING_ABI = [
             "type": "uint256"
           }
         ],
-        "internalType": "struct Betting.Staker[]",
+        "internalType": "struct HamsterBetting.Staker[]",
         "name": "stakers",
         "type": "tuple[]"
       }
@@ -377,7 +377,7 @@ export const BETTING_ABI = [
     "name": "status",
     "outputs": [
       {
-        "internalType": "enum Betting.Status",
+        "internalType": "enum HamsterBetting.Status",
         "name": "",
         "type": "uint8"
       }
