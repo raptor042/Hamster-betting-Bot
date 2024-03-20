@@ -1,4 +1,4 @@
-export const BETTING_CA = "0x6353C5687d177351AeB13780270064a809216d00"
+export const BETTING_CA = "0xCa95b96f63071280DEad3E255E841C40418DC474"
 
 export const BETTING_ABI = [
   {
@@ -72,7 +72,14 @@ export const BETTING_ABI = [
   },
   {
     "anonymous": false,
-    "inputs": [],
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "duration",
+        "type": "uint256"
+      }
+    ],
     "name": "Betting_Round_Started",
     "type": "event"
   },
@@ -133,28 +140,32 @@ export const BETTING_ABI = [
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "charliePool",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_admin",
+        "type": "address"
+      }
+    ],
+    "name": "addAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "admin",
     "outputs": [
       {
-        "internalType": "string",
-        "name": "hamster",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "wins",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "losses",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "balance",
-        "type": "uint256"
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -165,6 +176,19 @@ export const BETTING_ABI = [
     "name": "createUser",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "duration",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -208,12 +232,12 @@ export const BETTING_ABI = [
             "type": "uint256"
           },
           {
-            "internalType": "enum HamsterBetting.Outcome",
+            "internalType": "enum Betting.Outcome",
             "name": "outcome",
             "type": "uint8"
           }
         ],
-        "internalType": "struct HamsterBetting.Bet[]",
+        "internalType": "struct Betting.Bet[]",
         "name": "bets",
         "type": "tuple[]"
       }
@@ -244,9 +268,121 @@ export const BETTING_ABI = [
             "type": "uint256"
           }
         ],
-        "internalType": "struct HamsterBetting.Staker[]",
+        "internalType": "struct Betting.Staker[]",
         "name": "stakers",
         "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hamsterAPool",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "hamster",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "wins",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "losses",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hamsterBPool",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "hamster",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "wins",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "losses",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hamsterCPool",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "hamster",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "wins",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "losses",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hamsterDPool",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "hamster",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "wins",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "losses",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -272,34 +408,6 @@ export const BETTING_ABI = [
       {
         "internalType": "uint256",
         "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "oliverPool",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "hamster",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "wins",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "losses",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "balance",
         "type": "uint256"
       }
     ],
@@ -338,35 +446,13 @@ export const BETTING_ABI = [
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "rockyPool",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "hamster",
-        "type": "string"
-      },
+    "inputs": [
       {
         "internalType": "uint256",
-        "name": "wins",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "losses",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "balance",
+        "name": "_duration",
         "type": "uint256"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "start_betting_round",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -377,7 +463,7 @@ export const BETTING_ABI = [
     "name": "status",
     "outputs": [
       {
-        "internalType": "enum HamsterBetting.Status",
+        "internalType": "enum Betting.Status",
         "name": "",
         "type": "uint8"
       }
@@ -400,26 +486,11 @@ export const BETTING_ABI = [
   },
   {
     "inputs": [],
-    "name": "teddyPool",
+    "name": "timestamp",
     "outputs": [
       {
-        "internalType": "string",
-        "name": "hamster",
-        "type": "string"
-      },
-      {
         "internalType": "uint256",
-        "name": "wins",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "losses",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "balance",
+        "name": "",
         "type": "uint256"
       }
     ],

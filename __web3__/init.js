@@ -4,5 +4,5 @@ import { config } from "dotenv"
 config()
 
 export const getProvider = () => {
-    return new ethers.JsonRpcProvider(process.env.MAUINNET_API_URL)
+    return new ethers.JsonRpcProvider(process.env.BASE_SEPOLIA_API_URL)
 }
