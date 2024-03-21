@@ -1,4 +1,4 @@
-export const BETTING_CA = "0xa735e87C0F97ee56b3824F64Df9d90Ac86E4Cb7c"
+export const BETTING_CA = "0x07163Fad762594452e239AF3B5AB85d9aBE5cC93"
 
 export const BETTING_ABI = [
   {
@@ -169,6 +169,19 @@ export const BETTING_ABI = [
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_fee",
+        "type": "uint256"
+      }
+    ],
+    "name": "changeFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
