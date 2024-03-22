@@ -194,7 +194,7 @@ const notifications = async () => {
         console.log(users)
 
         users.forEach(async user => {
-            const text = `<b>A betting round has started and will end in ${duration} minutes. Place your bets 🚀.</b>`
+            const text = `<b>A betting round has started and will end in ${duration} minutes. Place your bets 🚀.</b>\n\n<a href='https://www.racinghamsters.com/bet'>🎲 Place Bet</a>`
             await bot.telegram.sendMessage(user.userId, text, {
                 parse_mode: "HTML"
             })
