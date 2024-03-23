@@ -1,4 +1,4 @@
-export const BETTING_CA = "0x07163Fad762594452e239AF3B5AB85d9aBE5cC93"
+export const BETTING_CA = "0x7931F903eB52Bc9B5cfBb46e007D0F856D30dCD4"
 
 export const BETTING_ABI = [
   {
@@ -59,14 +59,7 @@ export const BETTING_ABI = [
   },
   {
     "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "winner",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [],
     "name": "Betting_Round_Ended",
     "type": "event"
   },
@@ -94,6 +87,19 @@ export const BETTING_ABI = [
       }
     ],
     "name": "User_Created",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "winner",
+        "type": "uint256"
+      }
+    ],
+    "name": "Winner",
     "type": "event"
   },
   {
@@ -443,6 +449,19 @@ export const BETTING_ABI = [
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "winner",
+        "type": "uint256"
+      }
+    ],
+    "name": "pick_winner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "string",
         "name": "_id",
         "type": "string"
@@ -485,13 +504,7 @@ export const BETTING_ABI = [
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "winner",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [],
     "name": "stop_betting_round",
     "outputs": [],
     "stateMutability": "nonpayable",

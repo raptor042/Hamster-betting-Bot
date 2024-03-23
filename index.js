@@ -201,14 +201,27 @@ const notifications = async () => {
         })
     })
 
-    betting.on("Betting_Round_Ended", async (winner, e) => {
+    betting.on("Betting_Round_Ended", async (e) => {
+        console.log()
+        const users = await getUsers()
+        console.log(users)
+
+        users.forEach(async user => {
+            const text = `<b>This betting round has ended. Watch live stream 🚀.</b>\n\n<a href='https://www.racinghamsters.com/bet'>🎲 Live Stream</a>`
+            await bot.telegram.sendMessage(user.userId, text, {
+                parse_mode: "HTML"
+            })
+        })
+    })
+
+    betting.on("Winner", async (winner, e) => {
         console.log(winner)
 
         const users = await getUsers()
         console.log(users)
 
         users.forEach(async user => {
-            const text = `<b>The betting round has ended. The winner is ${hamsters[winner]} 🚀.</b>`
+            const text = `<b>The winner of this betting round is ${hamsters[winner]} 🚀.</b>`
             await bot.telegram.sendMessage(user.userId, text, {
                 parse_mode: "HTML"
             })
