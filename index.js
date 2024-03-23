@@ -131,7 +131,7 @@ bot.command("balance", async ctx => {
 bot.command("history", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
-        const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
+        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -159,7 +159,7 @@ bot.command("history", async ctx => {
 bot.command("current", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
-        const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
+        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -180,7 +180,7 @@ bot.command("current", async ctx => {
 })
 
 const notifications = async () => {
-    const hamsters = ["Nil", "Hamster A", "Hamster B", "Hamster C", "Hamster D"]
+    const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
     const betting = new ethers.Contract(
         BETTING_CA,
         BETTING_ABI,
