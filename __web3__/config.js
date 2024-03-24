@@ -1,4 +1,4 @@
-export const BETTING_CA = "0x8443b85608a101a610C0Afe85158Fa511AffFf77"
+export const BETTING_CA = "0x970a8d17492fDDb6c5e6326cEe97e21950d0B636"
 
 export const BETTING_ABI = [
   {
@@ -589,6 +589,13 @@ export const BETTING_ABI = [
   {
     "inputs": [],
     "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawFees",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
