@@ -11,6 +11,14 @@ config()
 
 const URL = process.env.TG_BOT_TOKEN
 
+const RACING_HAMSTERS = process.env.RACING_HAMSTERS
+
+const CK = process.env.CK
+
+const ANSEM = process.env.ANSEM
+
+const TRUMP = process.env.TRUMP
+
 const bot = new Telegraf(URL)
 
 bot.use(Telegraf.log())
@@ -181,6 +189,8 @@ bot.command("current", async ctx => {
 
 const notifications = async () => {
     const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
+    const _hamsters = ["Nil", CK, ANSEM, TRUMP]
+
     const betting = new ethers.Contract(
         BETTING_CA,
         BETTING_ABI,
@@ -190,11 +200,16 @@ const notifications = async () => {
 
     betting.on("Betting_Round_Started", async (duration, e) => {
         console.log(duration)
+        const text = `<b>A betting round has started and will end in ${Number(duration) / 60} minutes. Place your bets 🚀.</b>\n\n<a href='https://www.racinghamsters.com/bet'>🎲 Place Bet</a>`
+
+        await bot.telegram.sendMessage(Number(RACING_HAMSTERS), text, {
+            parse_mode: "HTML"
+        })
+
         const users = await getUsers()
         console.log(users)
 
         users.forEach(async user => {
-            const text = `<b>A betting round has started and will end in ${Number(duration) / 60} minutes. Place your bets 🚀.</b>\n\n<a href='https://www.racinghamsters.com/bet'>🎲 Place Bet</a>`
             await bot.telegram.sendMessage(user.userId, text, {
                 parse_mode: "HTML"
             })
@@ -202,12 +217,16 @@ const notifications = async () => {
     })
 
     betting.on("Betting_Round_Ended", async (e) => {
-        console.log()
+        const text = `<b>This betting round has ended. Watch live stream 🚀.</b>\n\n<a href='https://www.racinghamsters.com/bet'>🎲 Live Stream</a>`
+
+        await bot.telegram.sendMessage(Number(RACING_HAMSTERS), text, {
+            parse_mode: "HTML"
+        })
+
         const users = await getUsers()
         console.log(users)
 
         users.forEach(async user => {
-            const text = `<b>This betting round has ended. Watch live stream 🚀.</b>\n\n<a href='https://www.racinghamsters.com/bet'>🎲 Live Stream</a>`
             await bot.telegram.sendMessage(user.userId, text, {
                 parse_mode: "HTML"
             })
@@ -216,14 +235,20 @@ const notifications = async () => {
 
     betting.on("Winner", async (winner, e) => {
         console.log(winner)
+        const text = `<b>The winner of this betting round is ${hamsters[winner]} 🚀.</b>`
+
+        await bot.telegram.sendPhoto(Number(RACING_HAMSTERS), _hamsters[winner], {
+            parse_mode: "HTML",
+            caption: text
+        })
 
         const users = await getUsers()
         console.log(users)
 
         users.forEach(async user => {
-            const text = `<b>The winner of this betting round is ${hamsters[winner]} 🚀.</b>`
-            await bot.telegram.sendMessage(user.userId, text, {
-                parse_mode: "HTML"
+            await bot.telegram.sendPhoto(user.userId, _hamsters[winner], {
+                parse_mode: "HTML",
+                caption: text
             })
         })
     })
@@ -262,6 +287,13 @@ connectDB()
 setTimeout(() => {
     notifications()
 }, 1000);
+
+// const getChat = async () => {
+//     const chat = await bot.telegram.getChat("@RacingHamsters")
+//     console.log(chat)
+// }
+
+// getChat()
 
 bot.launch()
 
