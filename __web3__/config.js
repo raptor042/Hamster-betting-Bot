@@ -1,4 +1,4 @@
-export const BETTING_CA = "0x117D5e141052a6952749Cc07fa5cb8346460F107"
+export const BETTING_CA = "0xd2C68Cd5975290eACB4feB81CbA9Cd4eF72F93D6"
 
 export const BETTING_ABI = [
   {
@@ -186,6 +186,19 @@ export const BETTING_ABI = [
       }
     ],
     "name": "changeFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_wallet",
+        "type": "address"
+      }
+    ],
+    "name": "changeWallet",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -555,6 +568,19 @@ export const BETTING_ABI = [
         "internalType": "uint256",
         "name": "balance",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "wallet",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
