@@ -1,4 +1,4 @@
-export const BETTING_CA = "0xd2C68Cd5975290eACB4feB81CbA9Cd4eF72F93D6"
+export const BETTING_CA = "0x8443b85608a101a610C0Afe85158Fa511AffFf77"
 
 export const BETTING_ABI = [
   {
