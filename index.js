@@ -19,6 +19,8 @@ const ANSEM = process.env.ANSEM
 
 const TRUMP = process.env.TRUMP
 
+const SUS = process.env.SUS
+
 const bot = new Telegraf(URL)
 
 bot.use(Telegraf.log())
@@ -139,7 +141,7 @@ bot.command("balance", async ctx => {
 bot.command("history", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
-        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
+        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP", "SUS"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -167,7 +169,7 @@ bot.command("history", async ctx => {
 bot.command("current", async ctx => {
     try {
         const outcome = ["Won", "Lost", "Pending"]
-        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
+        const hamsters = ["Nil", "CK", "ANSEM", "TRUMP", "SUS"]
         const user = await getUser(ctx.message.from.id)
         console.log(user)
 
@@ -188,8 +190,8 @@ bot.command("current", async ctx => {
 })
 
 const notifications = async () => {
-    const hamsters = ["Nil", "CK", "ANSEM", "TRUMP"]
-    const _hamsters = ["Nil", CK, ANSEM, TRUMP]
+    const hamsters = ["Nil", "CK", "ANSEM", "TRUMP", "SUS"]
+    const _hamsters = ["Nil", CK, ANSEM, TRUMP, SUS]
 
     const betting = new ethers.Contract(
         BETTING_CA,

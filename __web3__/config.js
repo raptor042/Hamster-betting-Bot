@@ -1,4 +1,4 @@
-export const BETTING_CA = "0x970a8d17492fDDb6c5e6326cEe97e21950d0B636"
+export const BETTING_CA = "0xdc7a3D2dBD8Aa136824804D766f762596570d67A"
 
 export const BETTING_ABI = [
   {
@@ -268,6 +268,11 @@ export const BETTING_ABI = [
           },
           {
             "internalType": "uint256",
+            "name": "round",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
             "name": "amount",
             "type": "uint256"
           },
@@ -501,6 +506,19 @@ export const BETTING_ABI = [
     "name": "place_bet",
     "outputs": [],
     "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "round",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
